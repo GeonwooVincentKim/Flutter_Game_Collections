@@ -1,28 +1,32 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+// part 'user.dart';
 
 
 class User{
-  String id;
-  String userName;
-  String email;
+  final String id;
+  final String username;
+  final String email;
   // final String photoURL;
   // List<String> photoURL;
-  String photoURL;
-  String userAddress;
+  final String photoURL;
+  final String userAddress;
   
   User({
     // this.id,
     @required this.id,
-    @required this.userName,
+    @required this.username,
     @required this.email,
-    @required this.photoURL,
+    this.photoURL,
+
     @required this.userAddress
   });
 
   factory User.from(User user){
     return User(
       id: user.id ?? '',
-      userName: user.userName ?? '',
+      username: user.username ?? '',
       email: user.email ?? '',
       // photoURL: user.photoURL ?? [],
       photoURL: user.photoURL ?? '',
@@ -30,23 +34,35 @@ class User{
     );
   }
 
-  factory User.fromMap(Map<String, dynamic> data){
+  // factory User.fromJSON(Map<String, dynamic> _formUserData) => jsonDecode(_formUserData);
+  // _formUserData equals to variable named 'json'.
+  factory User.fromJson(Map<String, dynamic> _formUserData){
     return User(
-      id: data['id'] ?? '',
-      userName: data['username'] ?? '',
-      email: data['email'] ?? '',
-      photoURL: data['imageURL'] ?? '',
-      userAddress: data['Address'] ?? '',
+      id: _formUserData['id'] ?? '',
+      username: _formUserData['username'] ?? '',
+      email: _formUserData['email'] ?? '',
+      photoURL: _formUserData['imageURL'] ?? '',
+      userAddress: _formUserData['Address'] ?? '',
     );
   }
 
+  // factory User.fromMap(Map<String, dynamic> _formUserData){
+  //   return User(
+  //     id: _formUserData['id'] ?? '',
+  //     username: _formUserData['username'] ?? '',
+  //     email: _formUserData['email'] ?? '',
+  //     photoURL: _formUserData['imageURL'] ?? '',
+  //     userAddress: _formUserData['Address'] ?? '',
+  //   );
+  // }
+
   factory User.initialData(){
     return User(
-      id: '',
-      userName: '',
-      email: '',
-      photoURL: '',
-      userAddress: '',
+      id: '1',
+      username: 'Vincent',
+      email: 'test@example.com',
+      photoURL: 'https://cdn.pixabay.com/photo/2016/07/01/23/16/amusement-park-1492099_960_720.jpg',
+      userAddress: 'Seoul, Gangnam-gu',
     );
   }
 }

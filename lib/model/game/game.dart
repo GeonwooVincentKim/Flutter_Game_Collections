@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+// part "game.d.dart";
 
 class Game {
   final String id;
@@ -19,7 +20,7 @@ class Game {
     this.images,
     @required this.platforms,
     @required this.genres,
-    @required this.publisher,
+    this.publisher,
     this.description,
     @required this.releaseDate,
     @required this.isFavorite,
@@ -27,6 +28,9 @@ class Game {
     this.videoUrl,
   });
 
+  // factory Game.fromJson(Map<String, dynamic> jsonData) => _$GameFromJson(jsonData);
+  // Map<String dynamic> toJsonData => _$GameToJson(this);
+  // Allocates Memory of Game Class by using 'factory'.
   factory Game.from(Game game) {
     return Game(
       id: game.id ?? '',
@@ -42,5 +46,38 @@ class Game {
       videoUrl: game.videoUrl ?? ''
     );
   }
-
+  
+  // Mapign Game form to modify or add new games into my DiscoverList.
+  factory Game.fromJSON(Map<String, dynamic> data){
+    return Game(
+      id: data['id'] ?? '',
+      title: data['title'] ?? '',
+      images: data['images'] ?? [],
+      platforms: data['platforms'] ?? [],
+      genres: data['genres'] ?? [],
+      publisher: data['publisher'] ?? '',
+      description: data['descrption'] ?? '',
+      releaseDate: data['releaseDate'] ?? '',
+      isFavorite: data['isFavorite'] ?? false,
+      progression: data['progression'] ?? 0.0,
+      videoUrl: data['videoURL'] ?? ''
+    );
+  }
+   
+  // Initializing Data
+  factory Game.initialData(){
+    return Game(
+      id: '',
+      title: '',
+      images: [],
+      platforms: [],
+      genres: [],
+      publisher: '',
+      description: '',
+      releaseDate: '',
+      isFavorite: false,
+      progression: 0.0,
+      videoUrl: ''
+    );
+  }
 }

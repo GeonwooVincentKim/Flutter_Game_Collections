@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app_screens/Discover.dart';
-import 'package:flutter_app/app_screens/Home.dart';
+import 'package:flutter_app/app_screens/Home/Discover.dart';
+import 'package:flutter_app/app_screens/Home/Home.dart';
 import 'package:flutter_app/app_screens/attributes/HomeAppBar.dart';
-import 'package:flutter_app/app_screens/SideMenu.dart';
+import 'package:flutter_app/app_screens/Home/SideMenu.dart';
 import 'package:flutter_app/shared/helpers/icomoon.dart';
 // ignore: implementation_imports
 import 'package:flutter/src/widgets/framework.dart';
@@ -50,24 +50,19 @@ class _PageSliderState extends State<PageSlider>{
 
   Widget buildPageView(){
     return PageView(
-        controller: pageController,
-        // physics: ClampingScrollPhysics(),
-        onPageChanged: (index){
-          pageChanged(index);
-        },
-        //scrollDirection: Axis.horizontal,
-        children: <Widget>[
-          Home(),
-          Discover(),
-        ]
+      controller: pageController,
+      // physics: ClampingScrollPhysics(),
+      onPageChanged: (index){
+        pageChanged(index);
+      },
+      //scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        Home(),
+        Discover(),
+      ]
     );
   }
-
-  void pageChanged(int index){
-    setState((){
-      _selectedPage = index;
-    });
-  }
+  void pageChanged(int index){ setState(() => _selectedPage = index);}
 
   @override
   Widget build(BuildContext context) {
@@ -101,17 +96,11 @@ class _PageSliderState extends State<PageSlider>{
       pageController.animateToPage(index, duration: Duration(milliseconds: 700), curve: Curves.ease);
       switch(index){
         case 0: {
-          setState(() {
-            _showStar = true;
-            _title="MY GAMES";
-          });
+          setState(() {_showStar = true; _title="MY GAMES";});
           break;
         }
         case 1:{
-          setState(() {
-            _showStar = false;
-            _title="DISCOVER";
-          });
+          setState(() {_showStar = false; _title="DISCOVER";});
           break;
         }
       }
