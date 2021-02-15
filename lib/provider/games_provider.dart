@@ -1,11 +1,29 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_app/app_screens/Home/Home.dart';
 import 'package:flutter_app/data/games.dart';
 import 'package:flutter_app/model/game/game.dart';
 import 'package:flutter_app/shared/helpers/helpers.dart';
+import 'package:http/http.dart' as http;
 
 
 class GameProvider with ChangeNotifier{
-  List<Game> _gameItems = DUMMY_GAMES.toList();
+  // List<Game> _gameItems = DUMMY_GAMES.toList();
+  List<Game> _gameItems = List<Game>();
+  Future<List<Game>> fetchGames() async {
+    var url = "http://192.168.88.204:3010/api/users";
+    var response = await http.get(url);
+    var games = List<Game>();
+
+    if(response.statusCode == 200){
+      var gamesInfo = json.decode(response.body) as List;
+      for(var gameInfo in gamesInfo){
+        games.add(Game.fromJSON(gameInfo));
+      }
+    }
+    return games;
+  }
   List<Game> _userItems = [];
   Game _selectedGame;
   

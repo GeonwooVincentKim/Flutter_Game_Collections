@@ -10,6 +10,21 @@ class Discover extends StatefulWidget{ State<StatefulWidget> createState() => _D
 
 class _DiscoverState extends State<Discover>{
   List<Game> pageList = [];
+  Future<void> refreshUsers() async {
+    var result = await http_get('games');
+    if(result.ok){
+      setState(() {
+        pageList.clear();
+        var in_games = result.data as List<dynamic>;
+        in_games.forEach((in_games){
+          pageList.add(Game(
+            in_games['id'].toString(),
+            in_games['']
+          ));
+        });
+      });
+    }
+  }
 
   @override
   void initState(){
