@@ -27,15 +27,18 @@ class _CreateGameTileState extends State<CreateGameTile> {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return ElevatedButton(
       child: Text(
         widget.contents,
         style: TextStyle(fontSize: 12),
       ),
-      shape: ContinuousRectangleBorder(
-        side: BorderSide(color: isClicked ? Colors.white : textAccentColor),
-        borderRadius: BorderRadius.circular(5)),
-      color: Colors.white,
+      style: ElevatedButton.styleFrom(
+        foregroundColor: Colors.white,
+        shape: ContinuousRectangleBorder(
+          side: BorderSide(color: isClicked ? Colors.white : textAccentColor),
+          borderRadius: BorderRadius.circular(5)
+        )
+      ),
       onPressed: (){
         setState(() {
           isClicked = !isClicked;

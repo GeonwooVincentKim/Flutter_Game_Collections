@@ -89,7 +89,6 @@ class _GameCreatorState extends State<GameCreator> {
       height: screenHeight,
       color: backgroundColor,
       child: Stack(
-        overflow: Overflow.visible,
         children: [
           Padding(
             padding: EdgeInsets.all(defaultPadding),
@@ -124,9 +123,11 @@ class _GameCreatorState extends State<GameCreator> {
       left: 0,
       right: 0,
 
-      child: FlatButton(
-        shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
-        color: Colors.black87,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
+          foregroundColor: Colors.black87
+        ),
         child: Padding(
           padding: EdgeInsets.all(defaultPadding / 2),
           child: Text("SAVE", style: settingsMainFont),

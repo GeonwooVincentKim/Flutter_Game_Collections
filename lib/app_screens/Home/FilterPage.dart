@@ -74,7 +74,6 @@ class _FilterState extends State<Filter> {
       height: screenHeight,
       color: backgroundColor,
       child: Stack(
-        overflow: Overflow.visible,
         children: [
           Padding(
             padding: EdgeInsets.all(defaultPadding),
@@ -102,9 +101,11 @@ class _FilterState extends State<Filter> {
       child: Row(
         children: [
           Expanded(
-            child: FlatButton(
-              shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
-              color: Colors.black87,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
+                foregroundColor: Colors.black87
+              ),
               child: Padding(
                 padding: EdgeInsets.all(defaultPadding / 2),
                 child: Text("RESET", style: settingsMainFont),
@@ -112,9 +113,11 @@ class _FilterState extends State<Filter> {
             ),
           ),
           Expanded(
-            child: FlatButton(
-              shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
-              color: Colors.black87,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
+                foregroundColor: Colors.black87
+              ),
               child: Padding(
                 padding: EdgeInsets.all(defaultPadding / 2),
                 child: Text("SAVE", style: settingsMainFont),
