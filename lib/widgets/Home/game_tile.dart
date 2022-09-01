@@ -13,43 +13,13 @@ class GameTile extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: GestureDetector(
-            onTap: (){
-              Provider.of<GameProvider>(context, listen: false).selectGame(game);
-              Navigator.pushNamed(context, "/game/${game.id}");
-            },
-            child: Container(
-              child: Dismissible(
-                  key: ObjectKey(game.id),
-                  child: _buildTileContent(),
-                  background: _buildSlideLeft(),
-                  secondaryBackground: _buildSlideRight(),
-                  onDismissed: (direction){
-                    if(direction == DismissDirection.startToEnd){
-                      Provider.of<GameProvider>(context, listen: false).selectGame(game);
-                      // Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
-                      Navigator.pushNamed(context, "/createGame");
-                      print("HI");
-                    }
-                    else if (direction == DismissDirection.endToStart){
-                      Provider.of<GameProvider>(context, listen: false).changeProgression(game, 100);
-                      print(game.progression);
-                      print("Yeah"); 
-                    }
-                  },
-                )
-            ),
-          ),
-      // child: Consumer<GameProvider>(
-      //   builder: (context, gameTiles, _) => (
-      //     GestureDetector(
+      // child: GestureDetector(
       //       onTap: (){
       //         Provider.of<GameProvider>(context, listen: false).selectGame(game);
       //         Navigator.pushNamed(context, "/game/${game.id}");
       //       },
       //       child: Container(
-      //         child: game.progression != 100?
-      //           Dismissible(
+      //         child: Dismissible(
       //             key: ObjectKey(game.id),
       //             child: _buildTileContent(),
       //             background: _buildSlideLeft(),
@@ -67,25 +37,57 @@ class GameTile extends StatelessWidget{
       //                 print("Yeah"); 
       //               }
       //             },
-      //           ) : Dismissible(
-      //             // key: ObjectKey(game.id),
-      //             key: ObjectKey(game.id),
-      //             child: _buildTileContent(),
-      //             background: _buildSlideLeft(),
-      //             secondaryBackground: null,
-      //             onDismissed: (direction){
-      //               if(direction == DismissDirection.startToEnd){
-      //                 Provider.of<GameProvider>(context, listen: false).selectGame(game);
-      //                 Navigator.pushNamed(context, "/createGame");
-      //                 // Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
-      //                 // print("HI2");
-      //               }
-      //             },
-      //         ),
+      //           )
       //       ),
-      //     )
-      //   )
-      // ),
+      //     ),
+      child: Consumer<GameProvider>(
+        builder: (context, gameTiles, _) => (
+          GestureDetector(
+            onTap: (){
+              Provider.of<GameProvider>(context, listen: false).selectGame(game);
+              Navigator.pushNamed(context, "/game/${game.id}");
+            },
+            child: Container(
+              child: game.progression != 100?
+                Dismissible(
+                  // key: Key(game.id),
+                  key: UniqueKey(),
+                  child: _buildTileContent(),
+                  background: _buildSlideLeft(),
+                  secondaryBackground: _buildSlideRight(),
+                  onDismissed: (direction){
+                    if(direction == DismissDirection.startToEnd){
+                      Provider.of<GameProvider>(context, listen: false).selectGame(game);
+                      // Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
+                      Navigator.pushNamed(context, "/createGame");
+                      print("HI");
+                    }
+                    else if (direction == DismissDirection.endToStart){
+                      Provider.of<GameProvider>(context, listen: false).changeProgression(game, 100);
+                      print(game.progression);
+                      print("Yeah"); 
+                    }
+                  },
+                ) : Dismissible(
+                  // key: Key(game.id),
+                  // key: ObjectKey(game.id),
+                  key: UniqueKey(),
+                  child: _buildTileContent(),
+                  background: _buildSlideLeft(),
+                  secondaryBackground: null,
+                  onDismissed: (direction){
+                    if(direction == DismissDirection.startToEnd){
+                      Provider.of<GameProvider>(context, listen: false).selectGame(game);
+                      Navigator.pushNamed(context, "/createGame");
+                      // Provider.of<GameProvider>(context, listen: false).changeProgression(game, 50);
+                      // print("HI2");
+                    }
+                  },
+              ),
+            ),
+          )
+        )
+      ),
     );
   }
 
