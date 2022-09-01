@@ -33,10 +33,11 @@ class _CreateGameTileState extends State<CreateGameTile> {
         style: TextStyle(fontSize: 12),
       ),
       style: ElevatedButton.styleFrom(
+        foregroundColor: Colors.white,
         shape: ContinuousRectangleBorder(
           side: BorderSide(color: isClicked ? Colors.white : textAccentColor),
-          borderRadius: BorderRadius.circular(5)),
-        foregroundColor: Colors.white
+          borderRadius: BorderRadius.circular(5)
+        )
       ),
       onPressed: (){
         setState(() {
