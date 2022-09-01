@@ -48,6 +48,7 @@ class _ModifyProfileState extends State<ModifyProfile> {
       height: screenHeight,
       color: backgroundColor,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
           Padding(
             padding: EdgeInsets.all(defaultPadding * 2),

@@ -74,6 +74,7 @@ class _FilterState extends State<Filter> {
       height: screenHeight,
       color: backgroundColor,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
           Padding(
             padding: EdgeInsets.all(defaultPadding),

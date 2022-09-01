@@ -7,6 +7,7 @@ class ProfileImageButton extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Stack(
+      clipBehavior: Clip.none,
       children: <Widget>[
         RoundImage(),
         Positioned(

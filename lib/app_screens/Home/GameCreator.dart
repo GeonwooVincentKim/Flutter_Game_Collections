@@ -89,6 +89,7 @@ class _GameCreatorState extends State<GameCreator> {
       height: screenHeight,
       color: backgroundColor,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
           Padding(
             padding: EdgeInsets.all(defaultPadding),

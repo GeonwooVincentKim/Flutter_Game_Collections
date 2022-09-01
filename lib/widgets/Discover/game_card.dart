@@ -10,7 +10,7 @@ class DiscoverGameCard extends StatelessWidget{
   final Game discoverGame;
   DiscoverGameCard({
     @required this.discoverGame
-  });
+});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +24,7 @@ class DiscoverGameCard extends StatelessWidget{
         margin: EdgeInsets.only(bottom: defaultPadding),
         color: backgroundColor,
         child: Stack(
+          clipBehavior: Clip.none,
           children: [
             _buildGameImage(),
             _buildCardText(),

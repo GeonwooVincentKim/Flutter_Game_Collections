@@ -35,6 +35,7 @@ class _DetailImageAttributeState extends State<DetailImageAttribute> {
     return Consumer<GameProvider>(
       builder: (ctx, product, child) => (
           Stack(
+            clipBehavior: Clip.none,
             children: <Widget>[
             Container(
               width: screenWidth,

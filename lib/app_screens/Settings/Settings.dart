@@ -41,6 +41,7 @@ class _SettingState extends State<Setting> {
       height: screenHeight,
       color: backgroundColor,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 20, horizontal: defaultPadding),
