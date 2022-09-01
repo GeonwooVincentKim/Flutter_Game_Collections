@@ -37,7 +37,7 @@ class _BodyState extends State<Home>{
       child: SingleChildScrollView(
         child: Consumer<GameProvider>(
           builder: (ctx, gamesProduct, child){
-            final Map<String, dynamic> homeFilter = Provider.of<Filters>(context).homeFilters;
+            final Map<String, dynamic> homeFilter = Provider.of<Filters>(context, listen: false).homeFilters;
             final List<Game> listGame = gamesProduct.userItems;
             // final List<Game> listGame2 = gamesProduct.gameItems;
             inProgress = listGame.where((game) => game.progression != 0 && game.progression != 100).toList();

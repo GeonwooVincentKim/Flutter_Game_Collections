@@ -34,11 +34,11 @@ class _PageSliderState extends State<PageSlider>{
     return [
       BottomNavigationBarItem(
         icon: Icon(IconMoon.igamepad),
-        title: Text('My Games'),
+        label: "My Games",
       ),
       BottomNavigationBarItem(
         icon: Icon(IconMoon.isearch),
-        title: Text('Discover'),
+        label: "Discover",
       ),
     ];
   }

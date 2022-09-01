@@ -48,7 +48,7 @@ class _ModifyProfileState extends State<ModifyProfile> {
       height: screenHeight,
       color: backgroundColor,
       child: Stack(
-        overflow: Overflow.visible,
+        clipBehavior: Clip.none,
         children: [
           Padding(
             padding: EdgeInsets.all(defaultPadding * 2),
@@ -164,9 +164,11 @@ class _ModifyProfileState extends State<ModifyProfile> {
       left: 0,
       right: 0,
       
-      child: FlatButton(
-        shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
-        color: Colors.black87,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: ContinuousRectangleBorder(side: BorderSide(color: lineColor)),
+          foregroundColor: Colors.black87
+        ),
         child: Padding(
           padding: EdgeInsets.all(defaultPadding / 2),
           child: Text("MODIFY", style: settingsMainFont),
@@ -180,7 +182,7 @@ class _ModifyProfileState extends State<ModifyProfile> {
     if(!_formModifyKey.currentState.validate()) return;
     _formModifyKey.currentState.save();
     
-    Provider.of<UserProvider>(context).editUser(_formUserData);
+    Provider.of<UserProvider>(context, listen: false).editUser(_formUserData);
     Navigator.pushNamed(context, '/settings');
   }
 }

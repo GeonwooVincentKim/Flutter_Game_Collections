@@ -246,8 +246,8 @@ class _DetailPageState extends State<DetailPage> {
     if (!_formKey.currentState.validate()) return;
 
     _formKey.currentState.save();
-    Provider.of<GameProvider>(context).addGameList(selectedGame);
-    Provider.of<GameProvider>(context).changeProgression(selectedGame, _progression);
+    Provider.of<GameProvider>(context, listen: false).addGameList(selectedGame);
+    Provider.of<GameProvider>(context, listen: false).changeProgression(selectedGame, _progression);
 
     Navigator.of(context).pop();
   }
