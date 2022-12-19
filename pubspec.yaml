@@ -79,8 +79,8 @@ flutter:
     - assets/img/games/CrazyracingKartrider/KartRiderRush-3.jpg
     - assets/img/games/bravelyDefault2/image.jpg
     - assets/img/games/bravelyDefault2/Switch_BravelyDefault2_.jpg
-    - assets/img/games/noCover.gif
-    - assets/img/games/noImage.png
+    # - assets/img/games/noCover.gif
+    # - assets/img/games/noImage.png
     # - assets/img/avatars/panda.jpg
     # - assets/img/404.png
 
