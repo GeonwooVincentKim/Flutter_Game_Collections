@@ -246,7 +246,7 @@ var DUMMY_GAMES = [
   Game(
       id: 'ga9',
       title: 'League of Legends',
-      images: ['assets/img/games/leagueOfLegends/league-1.jpg', 'assets/img/games/leagueOfLegends/lol.jpg'],
+      images: ['assets/img/games/leagueOfLegends/league-3.jpg', 'assets/img/games/leagueOfLegends/lol.jpg'],
       platforms: [ 'p6' ],
       genres: [ 'g8' ],
       publisher: 'e6',
