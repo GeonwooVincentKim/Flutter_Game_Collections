@@ -17,7 +17,7 @@ class CustomDivider extends StatelessWidget{
   final double height;
 
   CustomDivider({
-    @required this.color,
+    required this.color,
     this.height = 40,
   });
 

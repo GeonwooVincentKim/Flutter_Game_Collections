@@ -10,9 +10,9 @@ class ListCheckBox extends StatelessWidget{
   final List<dynamic> listSelected;
 
   ListCheckBox({
-    @required this.label,
-    @required this.currentList,
-    @required this.listSelected
+    required this.label,
+    required this.currentList,
+    required this.listSelected
   });
 
   @override

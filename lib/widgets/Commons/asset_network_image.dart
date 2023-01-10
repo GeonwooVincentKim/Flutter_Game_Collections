@@ -7,8 +7,8 @@ class AssetNetworkImage extends StatelessWidget{
   final BoxFit fit;
 
   AssetNetworkImage({
-    @required this.path,
-    this.fit
+    required this.path,
+    required this.fit
   });
   
   @override

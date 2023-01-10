@@ -15,13 +15,13 @@ class PageLayout extends StatelessWidget {
   final Function bottomTapped;
 
   PageLayout({
-    @required this.body,
-    @required this.appBarTitle,
-    this.appBarActions,
+    required this.body,
+    required this.appBarTitle,
+    required this.appBarActions,
     this.hasDrawer = false,
     this.hasBottomNavigation = false,
     this.selectedIndex = 0,
-    this.bottomTapped
+    required this.bottomTapped
   });
 
   @override
@@ -46,7 +46,7 @@ class PageLayout extends StatelessWidget {
   }
 
   Drawer _buildDrawer(BuildContext context) {
-    String _currentRoute = ModalRoute.of(context).settings.name;
+    String? _currentRoute = ModalRoute.of(context)!.settings.name;
 
     return Drawer(
       child: Container(
@@ -105,10 +105,10 @@ class PageLayout extends StatelessWidget {
   }
 
 
-  Widget _buildDrawerTile({String link = '/', String currentRoute  = '/', String title, IconData icon, Function onTap}) {
+  Widget _buildDrawerTile({String link = '/', String? currentRoute  = '/', String? title, IconData? icon, Function? onTap}) {
     return ListTile(
       title: Text(
-        title,
+        title!,
         style: TextStyle(
           color: link == currentRoute ? textAccentColor : textGreyColor
         )
@@ -117,7 +117,6 @@ class PageLayout extends StatelessWidget {
         icon,
         color: link == currentRoute ? textAccentColor : textGreyColor,
       ),
-      onTap: onTap,
     );
   }
 

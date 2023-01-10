@@ -6,8 +6,8 @@ class Genre {
   final String description;
 
   const Genre({
-    @required this.id,
-    @required this.name,
-    this.description
+    required this.id,
+    required this.name,
+    required this.description
   });
 }

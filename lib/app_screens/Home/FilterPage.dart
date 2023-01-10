@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 class Filter extends StatefulWidget {
   final String backPage;
-  Filter({this.backPage});
+  Filter({required this.backPage});
 
   @override
   _FilterState createState() => _FilterState();
@@ -46,7 +46,7 @@ class _FilterState extends State<Filter> {
     super.initState();
   }
 
-  Widget _filterAppBar(){
+  PreferredSizeWidget _filterAppBar(){
     return AppBar(
       title: Text("Filters"),
       backgroundColor: appBarColor,
@@ -132,13 +132,13 @@ class _FilterState extends State<Filter> {
 
   void _filterSubmitForm(){
     // if(!_formFilterKey.currentState.validate()) return;
-    _formFilterKey.currentState.save();
+    _formFilterKey.currentState!.save();
     if(widget.backPage == 'home') Provider.of<Filters>(context, listen: false).changeHomeFilter(_formFilterListData);
     else Provider.of<Filters>(context, listen: false).changeDiscoverFilter(_formFilterListData);
   }
 
   void _filterResetForm(){
-    _formFilterKey.currentState.reset();
+    _formFilterKey.currentState!.reset();
     setState(() {
       _formFilterListData['publisher'] = '';
       _formFilterListData['platforms'] = [];

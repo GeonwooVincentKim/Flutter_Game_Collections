@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 class Favorites extends StatelessWidget{
   List<Game> inWidgetList = [];
 
-  Widget _buildMyFavoritesAppBar(){
+  PreferredSizeWidget _buildMyFavoritesAppBar(){
     return AppBar(
       backgroundColor: Colors.black87,
       title: Text("MY FAVORITES"),

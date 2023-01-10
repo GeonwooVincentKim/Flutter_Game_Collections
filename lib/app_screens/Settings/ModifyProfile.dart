@@ -33,14 +33,6 @@ class _ModifyProfileState extends State<ModifyProfile> {
     super.initState();
   }
 
-  Widget _buildModifyAppBar(){
-    return AppBar(
-      backgroundColor: appBarColor,
-      title: Text("MODIFY PROFILE"),
-      centerTitle: true,
-    );
-  }
-
   Widget _buildModifyBody(){
     double screenHeight = MediaQuery.of(context).size.height;
 
@@ -80,7 +72,11 @@ class _ModifyProfileState extends State<ModifyProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildModifyAppBar(),
+      appBar: AppBar(
+        backgroundColor: appBarColor,
+        title: Text("MODIFY PROFILE"),
+        centerTitle: true,
+      ),
       body: _buildModifyBody(),
     );
   }
@@ -91,7 +87,7 @@ class _ModifyProfileState extends State<ModifyProfile> {
         TextFormField(
           initialValue: _formUserData['username'],
           validator: (value){
-            if(value.isEmpty) {return 'Please enter some text';}
+            if(value!.isEmpty) {return 'Please enter some text';}
             return null;
           },
           onSaved: (value) => _formUserData['username'] = value
@@ -108,13 +104,12 @@ class _ModifyProfileState extends State<ModifyProfile> {
           initialValue: _formUserData['email'],
           keyboardType: TextInputType.emailAddress,
           validator: (value){
-            Pattern pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-            RegExp regex = new RegExp(pattern);
-            if(value.isEmpty) {return 'Please enter some text';}
+            final RegExp regex = RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+            if(value!.isEmpty) {return 'Please enter some text';}
             else if(!regex.hasMatch(value)){return 'Please enter VALID E-Mail';}
             return null;
           },
-          onSaved: (value) => _formUserData['email'] = value.replaceAll(new RegExp(r' '), ''),
+          onSaved: (value) => _formUserData['email'] = value!.replaceAll(new RegExp(r' '), ''),
         ),
         SizedBox(height: defaultPadding * 2),
       ],
@@ -127,10 +122,10 @@ class _ModifyProfileState extends State<ModifyProfile> {
         TextFormField(
           initialValue: _formUserData['imageURL'],
           validator: (value){
-            if(value.isEmpty) {return 'Please enter some text';}
+            if(value!.isEmpty) {return 'Please enter some text';}
             return null;
           },
-          onSaved: (value) => _formUserData['imageURL'] = value.replaceAll(new RegExp(r' '), ''),
+          onSaved: (value) => _formUserData['imageURL'] = value!.replaceAll(new RegExp(r' '), ''),
         ),
         SizedBox(height: defaultPadding * 2),
       ],
@@ -148,7 +143,7 @@ class _ModifyProfileState extends State<ModifyProfile> {
             labelText: '',
           ),
           validator: (value){
-            if(value.isEmpty) {return 'Please enter some text';}
+            if(value!.isEmpty) {return 'Please enter some text';}
             return null;
           },
           onSaved: (value) => _formUserData['Address'] = value
@@ -179,8 +174,8 @@ class _ModifyProfileState extends State<ModifyProfile> {
   }
 
   void _submitForm(BuildContext context){
-    if(!_formModifyKey.currentState.validate()) return;
-    _formModifyKey.currentState.save();
+    if(!_formModifyKey.currentState!.validate()) return;
+    _formModifyKey.currentState!.save();
     
     Provider.of<UserProvider>(context, listen: false).editUser(_formUserData);
     Navigator.pushNamed(context, '/settings');

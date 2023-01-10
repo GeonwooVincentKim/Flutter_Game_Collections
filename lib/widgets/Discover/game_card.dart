@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 class DiscoverGameCard extends StatelessWidget{
   final Game discoverGame;
   DiscoverGameCard({
-    @required this.discoverGame
+    required this.discoverGame
   });
 
   @override

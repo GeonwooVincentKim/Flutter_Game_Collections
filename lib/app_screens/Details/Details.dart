@@ -12,7 +12,7 @@ import 'package:flutter_app/shared/helpers/icomoon.dart';
 
 class DetailPage extends StatefulWidget {
   final String gameID;
-  DetailPage({this.gameID});
+  const DetailPage({required this.gameID});
 
   @override
   _DetailPageState createState() => _DetailPageState();
@@ -20,16 +20,16 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   // List<Game> listProgression = [];
-  Game selectedGame;
+  late Game selectedGame;
   double _progression = 0.0;
-  bool isFavorite;
+  late bool isFavorite;
 
   final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     setState(() {
-      selectedGame = Provider.of<GameProvider>(context, listen: false).selectedGame;
+      selectedGame = Provider.of<GameProvider>(context, listen: false).selectedGame!;
     });
 
     if (selectedGame == null) {
@@ -38,22 +38,6 @@ class _DetailPageState extends State<DetailPage> {
       selectedGame = listGame.firstWhere((game) => game.id == widget.gameID);
     }
     super.initState();
-  }
-
-  Widget _buildDetailsAppBar() {
-    return AppBar(
-      backgroundColor: appBarColor,
-      title: Text(selectedGame.title),
-      centerTitle: true,
-      actions: [
-        IconButton(
-          icon: Icon(IconMoon.iedit, color: Colors.white,),
-          onPressed: () {
-            
-            showAddListDialog(context);},
-        ),
-      ],
-    );
   }
 
   Widget _buildDetailsText(Game selectedGame) {
@@ -138,7 +122,19 @@ class _DetailPageState extends State<DetailPage> {
     return Consumer<GameProvider>(
       builder: (context, games, _) => (
         Scaffold(
-          appBar: _buildDetailsAppBar(),
+          appBar: AppBar(
+            backgroundColor: appBarColor,
+            title: Text(selectedGame.title),
+            centerTitle: true,
+            actions: [
+              IconButton(
+                icon: Icon(IconMoon.iedit, color: Colors.white,),
+                onPressed: () {
+                  
+                  showAddListDialog(context);},
+              ),
+            ],
+          ),
           body: _buildDetailsBody(),
         )
       ),
@@ -193,10 +189,10 @@ class _DetailPageState extends State<DetailPage> {
                     keyboardType: TextInputType.number,
                     onSaved: (progression) {
                       print('progression');
-                      _progression = double.parse(progression);
+                      _progression = double.parse(progression!);
                     },
                     validator: (value) {
-                      if (value.isEmpty) { return "Please Input your Procedure-Number Value."; }
+                      if (value!.isEmpty) { return "Please Input your Procedure-Number Value."; }
                       return null;
                     }),
               ),
@@ -243,9 +239,9 @@ class _DetailPageState extends State<DetailPage> {
   }
 
   void _submitForm(BuildContext context) {
-    if (!_formKey.currentState.validate()) return;
+    if (!_formKey.currentState!.validate()) return;
 
-    _formKey.currentState.save();
+    _formKey.currentState!.save();
     Provider.of<GameProvider>(context, listen: false).addGameList(selectedGame);
     Provider.of<GameProvider>(context, listen: false).changeProgression(selectedGame, _progression);
 

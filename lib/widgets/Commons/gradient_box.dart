@@ -9,10 +9,10 @@ class GradientBox extends StatelessWidget{
   // final Color color;
 
   GradientBox({
-    @required this.child,
-    @required this.padding,
+    required this.child,
+    required this.padding,
     this.hasBorderRadius = false,
-    this.borderRadius,
+    required this.borderRadius,
     // @required this.color
   });
   

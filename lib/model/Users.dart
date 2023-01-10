@@ -15,12 +15,12 @@ class User{
   
   User({
     // this.id,
-    @required this.id,
-    @required this.username,
-    @required this.email,
-    this.photoURL,
+    required this.id,
+    required this.username,
+    required this.email,
+    required this.photoURL,
 
-    @required this.userAddress
+    required this.userAddress
   });
 
   factory User.from(User user){

@@ -17,7 +17,7 @@ class GameCreateForm extends StatefulWidget {
   final GlobalKey<FormState> formGameKey;
   final Map<String, dynamic> formGameData;
   // final String ImageURL;
-  final List<String> imageURL;
+  late final List<String> imageURL;
   final bool isTitle;
   final bool isPublisher;
   final bool isPlatform;
@@ -27,9 +27,9 @@ class GameCreateForm extends StatefulWidget {
   final bool isImages;
 
   GameCreateForm({
-    @required this.formGameKey,
-    @required this.formGameData,
-    this.imageURL,
+    required this.formGameKey,
+    required this.formGameData,
+    required this.imageURL,
     this.isTitle = false,
     this.isPublisher = false,
     this.isPlatform = false,
@@ -104,7 +104,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
         TextFormField(
           initialValue: widget.formGameData['title'],
           validator: (value){
-            if(value.isEmpty){return 'Please Enter some Text';}
+            if(value!.isEmpty){return 'Please Enter some Text';}
             return null;
           }, onSaved: (value) => widget.formGameData['title'] = value
         ),
@@ -121,7 +121,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
         TextFormField(
           initialValue: widget.formGameData['title'],
           validator: (value){
-            if(value.isEmpty){return 'Please Enter some Text';}
+            if(value!.isEmpty){return 'Please Enter some Text';}
             return null;
           }, onSaved: (value) => widget.formGameData['title'] = value
         ),
@@ -198,7 +198,7 @@ class _GameCreateFormState extends State<GameCreateForm> {
             labelText: 'DESCRIPTION',
           ),
           validator: (value){
-            if(value.isEmpty){return 'Please Enter some Text';}
+            if(value!.isEmpty){return 'Please Enter some Text';}
             return null;
           }, onSaved: (value) => widget.formGameData['description'] = value
         ),
@@ -213,13 +213,13 @@ class _GameCreateFormState extends State<GameCreateForm> {
         return TextFormField(
           initialValue: widget.imageURL[index], 
           validator: (value){
-            if(value.isEmpty) return 'Please input your IMAGE-URL';
+            if(value!.isEmpty) return 'Please input your IMAGE-URL';
             return null;
           },
           decoration: InputDecoration(
             labelText: 'IMAGE URL'
           ),
-          onSaved: (String value) => setState((){widget.imageURL[index] = value;}),
+          onSaved: (String? value) => setState((){widget.imageURL[index] = value!;}),
           // onSaved: (value) => widget.formGameData['imageURL'] = value.replaceAll(new RegExp(r' '), ''),
         );
       }),

@@ -10,12 +10,12 @@ class ListTilesWithTitle extends StatelessWidget{
   final String title;
   final List<Game> gameList;
   final bool marginBottom;
-  Game game;
+  late Game game;
 
   ListTilesWithTitle({
-    @required this.title,
-    @required this.gameList,
-    this.marginBottom = true 
+    required this.title,
+    required this.gameList,
+    this.marginBottom = true
   });
 
   @override

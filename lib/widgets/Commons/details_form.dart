@@ -10,8 +10,8 @@ class DetailsForm extends StatelessWidget{
   final double marginBottom;
 
   DetailsForm({
-    @required this.contentsTitle,
-    @required this.contentsInfo,
+    required this.contentsTitle,
+    required this.contentsInfo,
     this.infoColor = textInfoColor,
     this.marginBottom = defaultPadding / 2
   });

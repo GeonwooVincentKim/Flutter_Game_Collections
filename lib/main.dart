@@ -32,17 +32,17 @@ class MyApp extends StatelessWidget{
           title: "My Flutter App",
           initialRoute: '/',
           routes: {
-            '/': (context) => PageSlider(),
+            '/': (context) => PageSlider(title: '',),
             '/discover': (context) => Discover(),
             '/favorite': (context) => Favorites(),
             '/settings': (context) => Setting(),
             '/settings/modify': (context) => ModifyProfile(),
-            '/details': (context) => DetailPage(),
+            '/details': (context) => DetailPage(gameID: '',),
             '/createGame': (context) => GameCreator(),
-            '/filter': (context) => Filter(),
+            '/filter': (context) => Filter(backPage: '',),
           },
           onGenerateRoute: (RouteSettings settings){
-            final List<String> pathElements = settings.name.split("/");
+            final List<String> pathElements = settings.name!.split("/");
             if(pathElements[0] != '') return null;
             if(pathElements[1] == 'game'){
               String gameId = pathElements[2];
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget{
             return null;
           },
           onUnknownRoute: (RouteSettings settings){
-            return MaterialPageRoute(builder: (BuildContext context) => PageSlider(),);
+            return MaterialPageRoute(builder: (BuildContext context) => PageSlider(title: '',),);
           },
         ),
     );

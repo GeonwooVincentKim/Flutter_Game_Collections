@@ -5,7 +5,7 @@ import 'package:flutter_app/widgets/expanded/divider.dart';
 
 class ProgressText extends StatelessWidget{
   final String title;
-  ProgressText({@required this.title});
+  ProgressText({required this.title});
 
   Widget build(BuildContext context) {
     return Container(

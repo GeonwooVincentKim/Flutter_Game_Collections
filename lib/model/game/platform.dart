@@ -7,9 +7,9 @@ class PlatformG {
   final String developer;
 
   const PlatformG({
-    @required this.id,
-    @required this.name,
-    this.description,
-    this.developer
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.developer
   });
 }

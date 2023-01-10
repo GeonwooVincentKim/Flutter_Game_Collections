@@ -9,7 +9,7 @@ class CreateGameTile extends StatefulWidget {
   final String contents;
   final List<dynamic> isSelected;
 
-  CreateGameTile({@required this.id, @required this.contents, @required this.isSelected});
+  CreateGameTile({required this.id, required this.contents, required this.isSelected});
   @override
   _CreateGameTileState createState() => _CreateGameTileState();
 }

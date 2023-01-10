@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class FavoritesGameCard extends StatelessWidget {
   final Game card;
   FavoritesGameCard({
-    @required this.card
+    required this.card
   });
   
   @override

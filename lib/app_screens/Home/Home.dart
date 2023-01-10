@@ -22,7 +22,7 @@ class _BodyState extends State<Home>{
   
   List<Game> inProgress = [], completed = [], newGame = [];
   List<String> titleList = <String>['IN PROCESS', 'Completed', 'New Game'];
-  Game deletedGame;
+  late Game deletedGame;
 
   @override
   void initState() {

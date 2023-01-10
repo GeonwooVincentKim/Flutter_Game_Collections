@@ -43,8 +43,8 @@ class _GameCreatorState extends State<GameCreator> {
   
   @override
   void initState(){
-    final Game gameSelect = Provider.of<GameProvider>(context, listen: false).selectedGame;
-    final Publisher pub = Provider.of<PublisherProvider>(context, listen: false).singlePublisher;
+    final Game? gameSelect = Provider.of<GameProvider>(context, listen: false).selectedGame;
+    final Publisher? pub = Provider.of<PublisherProvider>(context, listen: false).singlePublisher;
     // final String userID = Provider.of<User>(context, listen: false).id;
     if(gameSelect != null /* && gameSelect.createUser == userID */){
       print("Intializing..");
@@ -139,8 +139,8 @@ class _GameCreatorState extends State<GameCreator> {
   }
 
   void _submitForm(){
-    if(!formGameKey.currentState.validate()) return;
-    formGameKey.currentState.save();
+    if(!formGameKey.currentState!.validate()) return;
+    formGameKey.currentState!.save();
 
     formGameData['images'] = imageURL;
     final String month = formGameData['releaseMonth'];
@@ -174,7 +174,7 @@ class _GameCreatorState extends State<GameCreator> {
   }
 
   void _resetForm(){
-    formGameKey.currentState.reset();
+    formGameKey.currentState!.reset();
     setState((){
       formGameData['title'] = '';
       formGameData['images'] = [];

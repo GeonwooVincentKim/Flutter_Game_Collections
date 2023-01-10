@@ -9,14 +9,14 @@ class DetailImageAttribute extends StatefulWidget {
   final String image;
   final bool isFavorite;
 
-  DetailImageAttribute({@required this.image, @required this.isFavorite});
+  DetailImageAttribute({required this.image, required this.isFavorite});
 
   @override
   _DetailImageAttributeState createState() => _DetailImageAttributeState();
 }
 
 class _DetailImageAttributeState extends State<DetailImageAttribute> {
-  String image;
+  late String image;
   bool isFavorite = false;
 
   @override
@@ -66,7 +66,7 @@ class _DetailImageAttributeState extends State<DetailImageAttribute> {
 
 class ProgressBar extends StatelessWidget {
   final double gameProgressBar;
-  ProgressBar({@required this.gameProgressBar});
+  ProgressBar({required this.gameProgressBar});
 
   @override
   Widget build(BuildContext context) {

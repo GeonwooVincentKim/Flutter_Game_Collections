@@ -7,11 +7,11 @@ import 'package:flutter_app/shared/helpers/helpers.dart';
 class GameProvider with ChangeNotifier{
   List<Game> _gameItems = DUMMY_GAMES.toList();
   List<Game> _userItems = [];
-  Game _selectedGame;
+  late Game _selectedGame;
   
   List<Game> get gameItems => [..._gameItems];
   List<Game> get userItems => [..._userItems];
-  Game get selectedGame => _selectedGame != null ? Game.from(_selectedGame) : null;
+  Game? get selectedGame => _selectedGame != null ? Game.from(_selectedGame) : null;
   
   void createNewGameHome(Map<String, dynamic> data){
     data['id'] = getRandomString(2);

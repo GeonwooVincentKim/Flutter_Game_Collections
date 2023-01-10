@@ -66,10 +66,10 @@ class Filters with ChangeNotifier{
 }
 
 bool isFilter(Game game, Map<String, dynamic> filter){
-    final DateTime releaseDate = game.releaseDate != '' ? getDateTimeFormat(game.releaseDate) : null;
+    final DateTime? releaseDate = game.releaseDate != '' ? getDateTimeFormat(game.releaseDate) : null;
     if((filter['publisher'] == '' || filter['publisher'] == game.publisher) && 
-    (filter['releaseYear'] == null || filter['releaseYear'] == releaseDate.year.toString()) &&
-    (filter['releaseMonth'] == null || filter['releaseMonth'] == releaseDate.month.toString()) &&
+    (filter['releaseYear'] == null || filter['releaseYear'] == releaseDate!.year.toString()) &&
+    (filter['releaseMonth'] == null || filter['releaseMonth'] == releaseDate!.month.toString()) &&
     (filter['platforms'].length == 0 || checkGameListID(filter['platforms'], game.platforms)) &&
     (filter['genres'].length == 0 || checkGameListID(filter['genres'], game.genres))) {
       return true;

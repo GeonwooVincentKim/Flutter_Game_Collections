@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 
 class GameTile extends StatelessWidget{
   final Game game;
-  GameTile({@required this.game});
+  GameTile({required this.game});
   
   @override
   Widget build(BuildContext context) {

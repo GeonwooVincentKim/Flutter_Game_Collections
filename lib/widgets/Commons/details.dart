@@ -7,8 +7,8 @@ class Details extends StatelessWidget{
   final String contentsInfo;
 
   Details({
-    @required this.contentsTitle,
-    @required this.contentsInfo
+    required this.contentsTitle,
+    required this.contentsInfo
   });
 
   @override

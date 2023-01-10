@@ -15,17 +15,17 @@ class Game {
   String videoUrl;
 
   Game({
-    @required this.id,
-    @required this.title,
-    this.images,
-    @required this.platforms,
-    @required this.genres,
-    this.publisher,
-    this.description,
-    @required this.releaseDate,
-    @required this.isFavorite,
-    this.progression,
-    this.videoUrl,
+    required this.id,
+    required this.title,
+    required this.images,
+    required this.platforms,
+    required this.genres,
+    required this.publisher,
+    required this.description,
+    required this.releaseDate,
+    required this.isFavorite,
+    required this.progression,
+    required this.videoUrl,
   });
 
   // factory Game.fromJson(Map<String, dynamic> jsonData) => _$GameFromJson(jsonData);
@@ -38,7 +38,7 @@ class Game {
       images: game.images ?? [],
       platforms: game.platforms ?? [],
       genres: game.genres ?? [],
-      publisher: game.publisher ?? [],
+      publisher: game.publisher,
       description: game.description ?? '',
       releaseDate: game.releaseDate ?? '',
       isFavorite: game.isFavorite ?? false,

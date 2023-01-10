@@ -118,11 +118,15 @@ const DUMMY_PLATFORMS = const [
   ),
   PlatformG(
       id: 'p6',
-      name: 'PC'
+      name: 'PC',
+      description: '',
+      developer: ''
   ),
   PlatformG(
       id: 'p7',
-      name: 'Mobile'
+      name: 'Mobile',
+      description: '',
+      developer: ''
   ),
   PlatformG(
       id: 'p8',
@@ -181,7 +185,7 @@ var DUMMY_GAMES = [
   Game(
       id: 'ga4',
       title: 'Super Smash Bros. Ultimate',
-      images: ['assets/img/games/superSmashBrosUltimate/super-smash-bros-ultimate-cover.jpg', 'assets/img/games/image.jpeg'],
+      images: ['assets/img/games/superSmashBrosUltimate/super-smash-bros-ultimate-cover.jpg', 'assets/img/games/superSmashBrosUltimate/image.jpeg'],
       platforms: [ 'p4' ],
       genres: [ 'g5' ],
       publisher: 'e2',

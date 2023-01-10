@@ -7,10 +7,10 @@ class Publisher {
   final String country;
 
   const Publisher({
-    @required this.id,
-    @required this.name,
-    this.description,
-    this.country
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.country
   });
 
   factory Publisher.from(Publisher publisher){

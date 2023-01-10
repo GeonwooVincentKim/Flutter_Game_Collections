@@ -5,9 +5,10 @@ import 'package:flutter_app/shared/style.dart';
 class DropDownList extends StatelessWidget {
   final List<String> contentsList;
   final String contents;
+  late String e;
   final Function onChange;
 
-  DropDownList({@required this.contentsList, @required this.contents, @required this.onChange});
+  DropDownList({required this.contentsList, required this.contents, required this.onChange});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class DropDownList extends StatelessWidget {
           )
         );
       }).toList(),
-      onChanged: onChange,
+      onChanged: (onChange) {}
     );
   }
 }

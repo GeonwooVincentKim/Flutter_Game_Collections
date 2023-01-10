@@ -8,7 +8,7 @@ class UserProvider with ChangeNotifier{
   // User _userList = '{"": ""}';
   // User data = User(id: "8VxqWO9pRBTvpLGxFXquloo97X13", username: 'Vincent', email: "");
   // User _modifyUser;
-  User user;
+  late User user;
 
   User get userModify => User.from(_userList);
   // String get getUserID => _userList.id;

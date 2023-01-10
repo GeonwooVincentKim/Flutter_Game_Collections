@@ -10,17 +10,17 @@ import 'package:flutter/src/widgets/framework.dart';
 class PageSlider extends StatefulWidget{
   final String title;
 
-  PageSlider({Key key, this.title}) : super(key: key);
+  PageSlider({Key? key, required this.title}) : super(key: key);
   @override
   State<StatefulWidget> createState()
   => _PageSliderState();
 }
 
 class _PageSliderState extends State<PageSlider>{
-  String _title;
+  late String _title;
   bool _showStar = true;
   int _selectedPage = 0;
-  List<Widget> pageList = List<Widget>();
+  List<Widget> pageList = <Widget>[];
 
   @override
   void initState() {
